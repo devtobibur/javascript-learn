@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div>
+      <div class="flex justify-center items-center h-screen">
+        <div class="text-center p-10 shadow-lg rounded space-y-5">
+          <h1 class="text-3xl font-bold mb-4">Password Generator</h1>
+          <div class="flex items-center gap-x-3">
+            <h2>Password Length:</h2>
+            <input
+              type="number"
+              id="length"
+              class="border border-gray-300 rounded w-10"
+              value="12"
+            />
+          </div>
+          <div>
+            <div class="flex items-center gap-x-3">
+              <p>Include Uppercase:</p>
+              <input type="checkbox" id="uppercase" />
+            </div>
+            <div class="flex items-center gap-x-3">
+              <p>Include Lowercase:</p>
+              <input type="checkbox" id="lowercase" />
+            </div>
+            <div class="flex items-center gap-x-3">
+              <p>Include Numbers:</p>
+              <input type="checkbox" id="numbers" />
+            </div>
+            <div class="flex items-center gap-x-3">
+              <p>Include Symbols:</p>
+              <input type="checkbox" id="symbols" />
+            </div>
+          </div>
+          <div>
+            <input
+              type="text"
+              id="password"
+              class="border border-gray-300 rounded p-2 mb-4"
+              readonly
+            />
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+              onclick="generatePasswordHandeler()"
+            >
+              Generate Password
+            </button>
+          </div>
+          <div>
+            <button
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+              onclick="copyPassword()"
+            >
+              Copy Password
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
