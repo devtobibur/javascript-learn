@@ -17,34 +17,120 @@ const quizTitleEnd = document.getElementById("quizTitleEnd");
 
 const quizData = [
   {
-    question: "What is the capital of France?",
-    options: ["Berlin", "Madrid", "Paris", "Lisbon"],
-    answer: "Paris",
-  },
-  {
     question: "Which language is used for web development?",
     options: ["Python", "HTML", "Java", "C++"],
     answer: "HTML",
   },
   {
-    question: "Who wrote 'Hamlet'?",
+    question: "What does CSS stand for?",
     options: [
-      "Charles Dickens",
-      "William Shakespeare",
-      "Mark Twain",
-      "Jane Austen",
+      "Computer Style Sheets",
+      "Cascading Style Sheets",
+      "Colorful Style Sheets",
+      "Creative Style System",
     ],
-    answer: "William Shakespeare",
+    answer: "Cascading Style Sheets",
   },
   {
-    question: "What is the largest planet in our solar system?",
-    options: ["Earth", "Mars", "Jupiter", "Saturn"],
-    answer: "Jupiter",
+    question: "Which HTML tag is used to define an image?",
+    options: ["<img>", "<image>", "<src>", "<picture>"],
+    answer: "<img>",
   },
   {
-    question: "Which country is known as the Land of the Rising Sun?",
-    options: ["China", "Japan", "South Korea", "India"],
-    answer: "Japan",
+    question: "Inside which HTML element do we put the JavaScript?",
+    options: ["<script>", "<js>", "<javascript>", "<code>"],
+    answer: "<script>",
+  },
+  {
+    question: "Which company developed JavaScript?",
+    options: ["Microsoft", "Netscape", "Google", "Apple"],
+    answer: "Netscape",
+  },
+  {
+    question: "Which symbol is used for comments in JavaScript?",
+    options: ["//", "/*", "#", "<!--"],
+    answer: "//",
+  },
+  {
+    question:
+      "Which method is used to add a new element at the end of an array?",
+    options: ["push()", "pop()", "shift()", "unshift()"],
+    answer: "push()",
+  },
+  {
+    question: "What is the default port for HTTP?",
+    options: ["80", "443", "21", "8080"],
+    answer: "80",
+  },
+  {
+    question: "Which of the following is a JavaScript framework?",
+    options: ["React", "Laravel", "Django", "Flask"],
+    answer: "React",
+  },
+  {
+    question: "Which tag is used for creating hyperlinks in HTML?",
+    options: ["<link>", "<a>", "<href>", "<hyper>"],
+    answer: "<a>",
+  },
+  {
+    question: "Which operator is used for strict equality in JavaScript?",
+    options: ["==", "!=", "===", "="],
+    answer: "===",
+  },
+  {
+    question: "Which HTML attribute is used to define inline styles?",
+    options: ["style", "class", "id", "css"],
+    answer: "style",
+  },
+  {
+    question: "What does DOM stand for?",
+    options: [
+      "Document Object Model",
+      "Data Object Model",
+      "Document Order Management",
+      "Display Output Mechanism",
+    ],
+    answer: "Document Object Model",
+  },
+  {
+    question: "Which HTML tag is used to create a table row?",
+    options: ["<td>", "<tr>", "<table>", "<row>"],
+    answer: "<tr>",
+  },
+  {
+    question: "What is the file extension for JavaScript files?",
+    options: [".java", ".js", ".jsx", ".ts"],
+    answer: ".js",
+  },
+  {
+    question: "Which method converts JSON to a JavaScript object?",
+    options: [
+      "JSON.parse()",
+      "JSON.stringify()",
+      "JSON.decode()",
+      "JSON.read()",
+    ],
+    answer: "JSON.parse()",
+  },
+  {
+    question: "Which is a server-side JavaScript runtime?",
+    options: ["Node.js", "React", "Angular", "Vue"],
+    answer: "Node.js",
+  },
+  {
+    question: "What keyword is used to declare a variable in JavaScript?",
+    options: ["var", "let", "const", "All of the above"],
+    answer: "All of the above",
+  },
+  {
+    question: "Which HTML tag is used to create a line break?",
+    options: ["<br>", "<hr>", "<break>", "<lb>"],
+    answer: "<br>",
+  },
+  {
+    question: "What is the result of 2 + '2' in JavaScript?",
+    options: ["4", "'22'", "NaN", "undefined"],
+    answer: "'22'",
   },
 ];
 
@@ -67,18 +153,18 @@ const startQuiz = () => {
   optionsElement.innerHTML = ""; // Clear previous options
 
   currentQuiz.options.forEach((option, index) => {
-    const wrapper = document.createElement("div");
+    const wrapper = document.createElement("p");
     wrapper.className = "flex items-center gap-x-2 cursor-pointer";
 
     const input = document.createElement("input");
     input.type = "radio";
-    input.name = `question-${index + 1}`; // Use same name for all to make them a group
-    input.id = `option-${index + 1}`;
+    input.name = `question`; // Use same name for all to make them a group
+    input.id = `${option.toLocaleLowerCase()}`;
     input.value = option;
     input.required = true;
 
     const label = document.createElement("label");
-    label.htmlFor = `option-${index}`;
+    label.htmlFor = `${option.toLocaleLowerCase()}`;
     label.textContent = option;
 
     // Optional: click handler to check answer when clicked
